@@ -56,15 +56,39 @@
 		9D1A225624F718D8003D32D2 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				9D1A226E24F71A30003D32D2 /* other */,
+				9D1A226D24F71A19003D32D2 /* ui */,
+				9D1A226C24F719EF003D32D2 /* src */,
+			);
+			path = TicTacToe;
+			sourceTree = "<group>";
+		};
+		9D1A226C24F719EF003D32D2 /* src */ = {
+			isa = PBXGroup;
+			children = (
 				9D1A225724F718D8003D32D2 /* AppDelegate.swift */,
 				9D1A225924F718D8003D32D2 /* SceneDelegate.swift */,
 				9D1A225B24F718D8003D32D2 /* ViewController.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		9D1A226D24F71A19003D32D2 /* ui */ = {
+			isa = PBXGroup;
+			children = (
 				9D1A225D24F718D8003D32D2 /* Main.storyboard */,
-				9D1A226024F718DC003D32D2 /* Assets.xcassets */,
 				9D1A226224F718DC003D32D2 /* LaunchScreen.storyboard */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		9D1A226E24F71A30003D32D2 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				9D1A226024F718DC003D32D2 /* Assets.xcassets */,
 				9D1A226524F718DC003D32D2 /* Info.plist */,
 			);
-			path = TicTacToe;
+			path = other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
