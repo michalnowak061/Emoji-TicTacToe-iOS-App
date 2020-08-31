@@ -9,7 +9,7 @@
 import Foundation
 
 class GameModelAI: GameModel {
-    var searchingDepth: Int = 5
+    var searchingDepth: Int = 0
     
     init(boardSize: Int, player: Player) {
         var players: [Player] = []
@@ -17,6 +17,8 @@ class GameModelAI: GameModel {
         players.append(Player(name: "Player AI", symbol: PlayerSymbol.Cross))
         
         super.init(boardSize: boardSize, playersList: players)
+    
+        searchingDepth = settings.difficultLevel
     }
     
     public func makeMoveAI() {

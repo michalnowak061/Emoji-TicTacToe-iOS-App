@@ -19,8 +19,11 @@ class GameModel {
             return playersList[actualPlayerIndex]
         }
     }
+    var settings: Settings = Settings()
     
     init(boardSize: Int, playersList: [Player]) {
+        settings.load()
+        
         self.playersList = playersList
         self.movementsSequence = []
         self.board = Board.init(size: boardSize)

@@ -19,6 +19,8 @@
 		9D76BFD524FBF202007C1147 /* GameModelAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76BFD424FBF202007C1147 /* GameModelAI.swift */; };
 		9D76BFD724FBFB92007C1147 /* PlayerVsAiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */; };
 		9D76BFDC24FC55BB007C1147 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D76BFDA24FC55BB007C1147 /* Main.storyboard */; };
+		9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472624FD4B2100660545 /* SettingsViewController.swift */; };
+		9DB2472924FD4D6200660545 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472824FD4D6200660545 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		9D76BFD424FBF202007C1147 /* GameModelAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModelAI.swift; sourceTree = "<group>"; };
 		9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVsAiViewController.swift; sourceTree = "<group>"; };
 		9D76BFDB24FC55BB007C1147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DB2472624FD4B2100660545 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9DB2472824FD4D6200660545 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +86,10 @@
 				9D1A225924F718D8003D32D2 /* SceneDelegate.swift */,
 				9D1A225B24F718D8003D32D2 /* PlayerVsPlayerViewController.swift */,
 				9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */,
+				9DB2472624FD4B2100660545 /* SettingsViewController.swift */,
 				9D2A199D24F72731001B4947 /* Player.swift */,
 				9D2A199F24F7273E001B4947 /* Board.swift */,
+				9DB2472824FD4D6200660545 /* Settings.swift */,
 				9D2A19A124F7274A001B4947 /* GameModel.swift */,
 				9D76BFD424FBF202007C1147 /* GameModelAI.swift */,
 				9D74B4CD24F9143800EB2571 /* MinMaxAlgorithm.swift */,
@@ -183,11 +189,13 @@
 				9D2A199E24F72731001B4947 /* Player.swift in Sources */,
 				9D76BFD524FBF202007C1147 /* GameModelAI.swift in Sources */,
 				9D1A225C24F718D8003D32D2 /* PlayerVsPlayerViewController.swift in Sources */,
+				9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */,
 				9D2A19A024F7273E001B4947 /* Board.swift in Sources */,
 				9D76BFD724FBFB92007C1147 /* PlayerVsAiViewController.swift in Sources */,
 				9D74B4CE24F9143800EB2571 /* MinMaxAlgorithm.swift in Sources */,
 				9D1A225824F718D8003D32D2 /* AppDelegate.swift in Sources */,
 				9D1A225A24F718D8003D32D2 /* SceneDelegate.swift in Sources */,
+				9DB2472924FD4D6200660545 /* Settings.swift in Sources */,
 				9D2A19A224F7274A001B4947 /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -318,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -332,14 +340,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2M3KJN7D;
 				INFOPLIST_FILE = "$(SRCROOT)/TicTacToe/other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.TicTacToe;
+				PRODUCT_BUNDLE_IDENTIFIER = mnowak061.xyz.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -351,14 +360,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2M3KJN7D;
 				INFOPLIST_FILE = "$(SRCROOT)/TicTacToe/other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.TicTacToe;
+				PRODUCT_BUNDLE_IDENTIFIER = mnowak061.xyz.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
