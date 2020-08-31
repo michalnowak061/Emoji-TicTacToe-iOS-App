@@ -9,7 +9,7 @@
 import Foundation
 
 enum BoardStatus {
-    case anything
+    case continues
     case win
     case draw
 }
@@ -132,7 +132,7 @@ struct Board {
         for i in 0...size-1 {
             for j in 0...size-1 {
                 if table[i][j] == 0 {
-                     return BoardStatus.anything
+                     return BoardStatus.continues
                 }
             }
         }

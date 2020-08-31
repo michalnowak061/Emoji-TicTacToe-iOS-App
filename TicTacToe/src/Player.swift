@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Symbol: Int {
+enum PlayerSymbol: Int {
     case Null
     case Circle
     case Cross
@@ -16,10 +16,10 @@ enum Symbol: Int {
 
 struct Player {
     var name: String
-    var symbol: Symbol
+    var symbol: PlayerSymbol
     var points = 0
     
-    init(name: String, symbol: Symbol) {
+    init(name: String, symbol: PlayerSymbol) {
         self.name = name
         self.symbol = symbol
     }

@@ -1,34 +1,35 @@
 //
-//  PlayerVsPlayerViewController.swift
+//  PlayerVsAiViewController.swift
 //  TicTacToe
 //
-//  Created by Michał Nowak on 27/08/2020.
+//  Created by Michał Nowak on 30/08/2020.
 //  Copyright © 2020 none. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class PlayerVsPlayerViewController: UIViewController {
-    var gameModel: GameModel!
+class PlayerVsAiViewController: UIViewController {
+    var gameModel: GameModelAI!
     let gameModelQueue: DispatchQueue = DispatchQueue.init(label: "gameModelQueue")
     let mainQueue: DispatchQueue = DispatchQueue.main
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        let player = Player(name: "Player1", symbol: PlayerSymbol.Circle)
         
-        var players: [Player] = []
-        players.append(Player(name: "Player1", symbol: PlayerSymbol.Circle))
-        players.append(Player(name: "Player2", symbol: PlayerSymbol.Cross))
-        
-        gameModel = GameModel.init(boardSize: 3, playersList: players)
-        updateUI()
+        gameModelQueue.async {
+            self.gameModel = GameModelAI.init(boardSize: 3, player: player)
+            self.mainQueue.async { self.updateUI() }
+            self.gameModel.makeMoveAI()
+            self.mainQueue.async { self.updateUI() }
+        }
     }
     
     func updateUI() {
         if gameModel.gameStatus != BoardStatus.continues {
             switch gameModel.gameStatus {
             case BoardStatus.win:
-                communicates.text = ActualPlayerName.text! + " wins !"
+                communicates.text = gameModel.actualPlayer.name + " wins !"
             default:
                 communicates.text = "Draw !"
             }
@@ -36,7 +37,6 @@ class PlayerVsPlayerViewController: UIViewController {
             continueButton.isHidden = false
             blockButtons()
         }
-        
         
         Player1Name.text = gameModel.playersList[0].name
         Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
@@ -53,6 +53,8 @@ class PlayerVsPlayerViewController: UIViewController {
             continueButton.isHidden = true
             communicates.text = ""
         }
+        
+        boardToButtons()
     }
     
     private func symbolToIcon(symbol: PlayerSymbol) -> String {
@@ -93,6 +95,47 @@ class PlayerVsPlayerViewController: UIViewController {
         }
     }
     
+    public func boardToButtons() {
+        if gameModel.board.table[0][0] != 0 {
+            Button00.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][0])!), for: .normal);
+            Button00.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[0][1] != 0 {
+            Button01.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][1])!), for: .normal);
+            Button01.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[0][2] != 0 {
+            Button02.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][2])!), for: .normal);
+            Button02.isUserInteractionEnabled = false
+        }
+        
+        if gameModel.board.table[1][0] != 0 {
+            Button10.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][0])!), for: .normal);
+            Button10.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[1][1] != 0 {
+            Button11.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][1])!), for: .normal);
+            Button11.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[1][2] != 0 {
+            Button12.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][2])!), for: .normal);
+            Button12.isUserInteractionEnabled = false
+        }
+        
+        if gameModel.board.table[2][0] != 0 {
+            Button20.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][0])!), for: .normal);
+            Button20.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[2][1] != 0 {
+            Button21.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][1])!), for: .normal);
+            Button21.isUserInteractionEnabled = false
+        }
+        if gameModel.board.table[2][2] != 0 {
+            Button22.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][2])!), for: .normal);
+            Button22.isUserInteractionEnabled = false
+        }
+    }
+    
     private func clearButtons() {
         Button00.setTitle("", for: .normal); Button00.isUserInteractionEnabled = true
         Button01.setTitle("", for: .normal); Button01.isUserInteractionEnabled = true
@@ -103,6 +146,18 @@ class PlayerVsPlayerViewController: UIViewController {
         Button20.setTitle("", for: .normal); Button20.isUserInteractionEnabled = true
         Button21.setTitle("", for: .normal); Button21.isUserInteractionEnabled = true
         Button22.setTitle("", for: .normal); Button22.isUserInteractionEnabled = true
+    }
+    
+    private func unBlockButtons() {
+        Button00.isUserInteractionEnabled = true
+        Button01.isUserInteractionEnabled = true
+        Button02.isUserInteractionEnabled = true
+        Button10.isUserInteractionEnabled = true
+        Button11.isUserInteractionEnabled = true
+        Button12.isUserInteractionEnabled = true
+        Button20.isUserInteractionEnabled = true
+        Button21.isUserInteractionEnabled = true
+        Button22.isUserInteractionEnabled = true
     }
     
     private func blockButtons() {
@@ -146,25 +201,40 @@ class PlayerVsPlayerViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         let position = buttonIDtoPosition(id: sender.restorationIdentifier!)
         
-        gameModel.playerMakeMove(selectedPosition: position)
-        
-        sender.isUserInteractionEnabled = false
-        sender.setTitle(ActualPlayerSymbol.text, for: .normal)
-        
-        updateUI()
+        gameModelQueue.async {
+            self.gameModel.playerMakeMove(selectedPosition: position)
+            self.mainQueue.async {
+                self.blockButtons()
+                self.updateUI()
+            }
+            sleep(1)
+            self.gameModel.makeMoveAI()
+            self.mainQueue.async {
+                self.unBlockButtons()
+                self.updateUI()
+            }
+        }
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        gameModel.newRound()
-        clearButtons()
-        communicates.text = ""
-        sender.isHidden = true
-        updateUI()
+        gameModelQueue.async {
+            self.mainQueue.async {
+                self.clearButtons()
+                self.updateUI()
+            }
+            self.gameModel.newRound()
+            self.gameModel.makeMoveAI()
+            self.mainQueue.sync {
+                self.clearButtons()
+                self.updateUI()
+            }
+        }
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        clearButtons()
-        viewDidLoad()
+        self.mainQueue.async {
+            self.clearButtons()
+            self.viewDidLoad()
+        }
     }
 }
-
