@@ -19,9 +19,16 @@ class PlayerVsAiViewController: UIViewController {
         
         gameModelQueue.async {
             self.gameModel = GameModelAI.init(boardSize: 3, player: player)
-            self.mainQueue.async { self.updateUI() }
+            self.mainQueue.async {
+                self.blockButtons()
+                self.updateUI()
+            }
             self.gameModel.makeMoveAI()
-            self.mainQueue.async { self.updateUI() }
+            sleep(1)
+            self.mainQueue.async {
+                self.unBlockButtons()
+                self.updateUI()
+            }
         }
     }
     
@@ -46,6 +53,8 @@ class PlayerVsAiViewController: UIViewController {
         Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
         Player2Points.text = String(gameModel.playersList[1].points)
         
+        actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
+        
         ActualPlayerName.text = gameModel.actualPlayer.name
         ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
         
@@ -55,44 +64,6 @@ class PlayerVsAiViewController: UIViewController {
         }
         
         boardToButtons()
-    }
-    
-    private func symbolToIcon(symbol: PlayerSymbol) -> String {
-        switch symbol.rawValue {
-        case 0:
-            return "Null"
-        case 1:
-            return "⭕️"
-        case 2:
-            return "❌"
-        default:
-            return "Null"
-        }
-    }
-    
-    public func buttonIDtoPosition(id: String) -> (Int, Int) {
-        switch id {
-        case "Button00":
-            return (0, 0)
-        case "Button01":
-            return (0, 1)
-        case "Button02":
-            return (0, 2)
-        case "Button10":
-            return (1, 0)
-        case "Button11":
-            return (1, 1)
-        case "Button12":
-            return (1, 2)
-        case "Button20":
-            return (2, 0)
-        case "Button21":
-            return (2, 1)
-        case "Button22":
-            return (2, 2)
-        default:
-            return (0, 0)
-        }
     }
     
     public func boardToButtons() {
@@ -181,6 +152,8 @@ class PlayerVsAiViewController: UIViewController {
     @IBOutlet weak var Player2Symbol: UILabel!
     @IBOutlet weak var Player2Points: UILabel!
     
+    @IBOutlet weak var actualRound: UILabel!
+    
     @IBOutlet weak var ActualPlayerName: UILabel!
     @IBOutlet weak var ActualPlayerSymbol: UILabel!
     
@@ -207,8 +180,8 @@ class PlayerVsAiViewController: UIViewController {
                 self.blockButtons()
                 self.updateUI()
             }
-            sleep(1)
             self.gameModel.makeMoveAI()
+            sleep(1)
             self.mainQueue.async {
                 self.unBlockButtons()
                 self.updateUI()
@@ -221,14 +194,22 @@ class PlayerVsAiViewController: UIViewController {
             self.mainQueue.async {
                 self.clearButtons()
                 self.updateUI()
+                self.blockButtons()
+
             }
             self.gameModel.newRound()
             self.gameModel.makeMoveAI()
+            sleep(1)
             self.mainQueue.sync {
+                self.unBlockButtons()
                 self.clearButtons()
                 self.updateUI()
             }
         }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {

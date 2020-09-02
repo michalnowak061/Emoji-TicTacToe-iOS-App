@@ -53,6 +53,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D15536D24FFC47B003133AF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9D2A199D24F72731001B4947 /* Player.swift */,
+				9D2A199F24F7273E001B4947 /* Board.swift */,
+				9DB2472824FD4D6200660545 /* Settings.swift */,
+				9D2A19A124F7274A001B4947 /* GameModel.swift */,
+				9D76BFD424FBF202007C1147 /* GameModelAI.swift */,
+				9D74B4CD24F9143800EB2571 /* MinMaxAlgorithm.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		9D1A224B24F718D8003D32D2 = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +100,7 @@
 				9D1A225B24F718D8003D32D2 /* PlayerVsPlayerViewController.swift */,
 				9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */,
 				9DB2472624FD4B2100660545 /* SettingsViewController.swift */,
-				9D2A199D24F72731001B4947 /* Player.swift */,
-				9D2A199F24F7273E001B4947 /* Board.swift */,
-				9DB2472824FD4D6200660545 /* Settings.swift */,
-				9D2A19A124F7274A001B4947 /* GameModel.swift */,
-				9D76BFD424FBF202007C1147 /* GameModelAI.swift */,
-				9D74B4CD24F9143800EB2571 /* MinMaxAlgorithm.swift */,
+				9D15536D24FFC47B003133AF /* model */,
 			);
 			path = src;
 			sourceTree = "<group>";

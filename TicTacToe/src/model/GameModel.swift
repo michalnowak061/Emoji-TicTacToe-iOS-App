@@ -19,10 +19,13 @@ class GameModel {
             return playersList[actualPlayerIndex]
         }
     }
+    var actualRound: Int
+    var roundsNumber: Int
     var settings: Settings = Settings()
+    var settingsErrorCode: SettingsErrorCodes!
     
     init(boardSize: Int, playersList: [Player]) {
-        settings.load()
+        settingsErrorCode = settings.load()
         
         self.playersList = playersList
         self.movementsSequence = []
@@ -30,6 +33,8 @@ class GameModel {
         self.gameStatus = BoardStatus.continues
         self.movementsSequence = []
         self.actualPlayerIndex = 0
+        self.actualRound = 1
+        self.roundsNumber = settings.roundsNumber
         
         generateMovementsSequence()
         changeActualPlayer()
@@ -55,9 +60,7 @@ class GameModel {
         guard board.table[selectedPosition.column][selectedPosition.row] == 0 else {
             return
         }
-        
         board.makeMove(player: actualPlayer, position: selectedPosition)
-        
         update()
     }
     
@@ -66,10 +69,7 @@ class GameModel {
         gameStatus = BoardStatus.continues
         generateMovementsSequence()
         changeActualPlayer()
-    }
-    
-    public func printBoard() {
-        board.printBoard()
+        actualRound += 1
     }
     
     private func generateMovementsSequence() {

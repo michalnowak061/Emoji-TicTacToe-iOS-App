@@ -37,7 +37,6 @@ class PlayerVsPlayerViewController: UIViewController {
             blockButtons()
         }
         
-        
         Player1Name.text = gameModel.playersList[0].name
         Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
         Player1Points.text = String(gameModel.playersList[0].points)
@@ -46,50 +45,14 @@ class PlayerVsPlayerViewController: UIViewController {
         Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
         Player2Points.text = String(gameModel.playersList[1].points)
         
+        actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
+        
         ActualPlayerName.text = gameModel.actualPlayer.name
         ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
         
         if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
             continueButton.isHidden = true
             communicates.text = ""
-        }
-    }
-    
-    private func symbolToIcon(symbol: PlayerSymbol) -> String {
-        switch symbol.rawValue {
-        case 0:
-            return "Null"
-        case 1:
-            return "⭕️"
-        case 2:
-            return "❌"
-        default:
-            return "Null"
-        }
-    }
-    
-    public func buttonIDtoPosition(id: String) -> (Int, Int) {
-        switch id {
-        case "Button00":
-            return (0, 0)
-        case "Button01":
-            return (0, 1)
-        case "Button02":
-            return (0, 2)
-        case "Button10":
-            return (1, 0)
-        case "Button11":
-            return (1, 1)
-        case "Button12":
-            return (1, 2)
-        case "Button20":
-            return (2, 0)
-        case "Button21":
-            return (2, 1)
-        case "Button22":
-            return (2, 2)
-        default:
-            return (0, 0)
         }
     }
     
@@ -125,6 +88,8 @@ class PlayerVsPlayerViewController: UIViewController {
     @IBOutlet weak var Player2Name: UILabel!
     @IBOutlet weak var Player2Symbol: UILabel!
     @IBOutlet weak var Player2Points: UILabel!
+    
+    @IBOutlet weak var actualRound: UILabel!
     
     @IBOutlet weak var ActualPlayerName: UILabel!
     @IBOutlet weak var ActualPlayerSymbol: UILabel!
@@ -162,9 +127,52 @@ class PlayerVsPlayerViewController: UIViewController {
         updateUI()
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         clearButtons()
         viewDidLoad()
     }
 }
 
+extension UIViewController {
+    func symbolToIcon(symbol: PlayerSymbol) -> String {
+        switch symbol.rawValue {
+        case 0:
+            return "Null"
+        case 1:
+            return "⭕️"
+        case 2:
+            return "❌"
+        default:
+            return "Null"
+        }
+    }
+    
+    func buttonIDtoPosition(id: String) -> (Int, Int) {
+        switch id {
+        case "Button00":
+            return (0, 0)
+        case "Button01":
+            return (0, 1)
+        case "Button02":
+            return (0, 2)
+        case "Button10":
+            return (1, 0)
+        case "Button11":
+            return (1, 1)
+        case "Button12":
+            return (1, 2)
+        case "Button20":
+            return (2, 0)
+        case "Button21":
+            return (2, 1)
+        case "Button22":
+            return (2, 2)
+        default:
+            return (0, 0)
+        }
+    }
+}
