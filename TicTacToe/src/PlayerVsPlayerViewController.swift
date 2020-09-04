@@ -30,9 +30,8 @@ class PlayerVsPlayerViewController: UIViewController {
             case BoardStatus.draw:
                 communicates.text = "Draw in round"
             default:
-                communicates.text = "Draw in round"
+                break
             }
-            
             continueButton.isHidden = false
             blockButtons()
         }
@@ -139,7 +138,6 @@ class PlayerVsPlayerViewController: UIViewController {
             showGameResultViewController()
             return
         }
-        
         gameModel.newRound()
         clearButtons()
         communicates.text = ""

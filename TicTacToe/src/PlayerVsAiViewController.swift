@@ -36,33 +36,33 @@ class PlayerVsAiViewController: UIViewController {
         if gameModel.gameStatus != BoardStatus.continues {
             switch gameModel.gameStatus {
             case BoardStatus.win:
-                communicates.text = gameModel.actualPlayer.name + " wins !"
+                communicates.text = ActualPlayerName.text! + " wins the round"
+            case BoardStatus.draw:
+                communicates.text = "Draw in round"
             default:
-                communicates.text = "Draw !"
+                break
             }
-            
             continueButton.isHidden = false
             blockButtons()
+        } else {
+            Player1Name.text = gameModel.playersList[0].name
+            Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
+            Player1Points.text = String(gameModel.playersList[0].points)
+            
+            Player2Name.text = gameModel.playersList[1].name
+            Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
+            Player2Points.text = String(gameModel.playersList[1].points)
+            
+            actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
+            
+            ActualPlayerName.text = gameModel.actualPlayer.name
+            ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
+            
+            if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
+                continueButton.isHidden = true
+                communicates.text = ""
+            }
         }
-        
-        Player1Name.text = gameModel.playersList[0].name
-        Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
-        Player1Points.text = String(gameModel.playersList[0].points)
-        
-        Player2Name.text = gameModel.playersList[1].name
-        Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
-        Player2Points.text = String(gameModel.playersList[1].points)
-        
-        actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
-        
-        ActualPlayerName.text = gameModel.actualPlayer.name
-        ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
-        
-        if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
-            continueButton.isHidden = true
-            communicates.text = ""
-        }
-        
         boardToButtons()
     }
     
@@ -143,6 +143,20 @@ class PlayerVsAiViewController: UIViewController {
         Button22.isUserInteractionEnabled = false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "showGameResultViewController":
+                guard let gameResultVC: GameResultViewController = segue.destination as? GameResultViewController else {
+                    return
+                }
+                gameResultVC.previousViewControllerID = self.restorationIdentifier
+            default:
+                break
+            }
+        }
+    }
+    
     // @IBOutlet's
     @IBOutlet weak var Player1Name: UILabel!
     @IBOutlet weak var Player1Symbol: UILabel!
@@ -190,6 +204,10 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
+        if gameModel.actualRound >= gameModel.roundsNumber {
+            showGameResultViewController()
+            return
+        }
         gameModelQueue.async {
             self.mainQueue.async {
                 self.clearButtons()
@@ -209,7 +227,7 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        showMenuViewController()
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
