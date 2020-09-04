@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="9xe-yA-Mge">
             <objects>
-                <viewController id="dju-Vf-6km" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dju-Vf-6km" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pl5-Tz-o1G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="Hda-0y-wva">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="dg8-pw-F8n">
+                                        <barButtonItem key="leftBarButtonItem" id="dg8-pw-F8n">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oIL-xL-ISC">
                                                 <rect key="frame" x="20" y="7" width="57" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,7 +152,7 @@
         <!--Player Vs Player View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="PlayerVsPlayerViewController" id="BYZ-38-t0r" customClass="PlayerVsPlayerViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerVsPlayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PlayerVsPlayerViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,7 +327,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Player vs Player" id="VTH-4I-eny">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="XYR-R3-1Vv">
+                                        <barButtonItem key="leftBarButtonItem" id="XYR-R3-1Vv">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B9e-2C-IK1">
                                                 <rect key="frame" x="20" y="7" width="34" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -337,7 +337,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="fWt-11-oBL">
+                                        <barButtonItem key="rightBarButtonItem" id="fWt-11-oBL">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hMh-K3-kDP">
                                                 <rect key="frame" x="355" y="7" width="39" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -384,16 +384,17 @@
                         <outlet property="actualRound" destination="j5c-fP-ZIx" id="ZLk-3f-XMM"/>
                         <outlet property="communicates" destination="FQv-yd-FGF" id="msX-VO-1YW"/>
                         <outlet property="continueButton" destination="gZC-zV-0yg" id="Ufn-6C-bpi"/>
+                        <segue destination="t2H-Hu-yWF" kind="presentation" identifier="showGameResultViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="hNF-nk-isv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="-217"/>
+            <point key="canvasLocation" x="506" y="-229"/>
         </scene>
         <!--Player Vs Ai View Controller-->
         <scene sceneID="07g-3V-cfn">
             <objects>
-                <viewController storyboardIdentifier="PlayerVsAiViewController" id="0nk-gy-aMh" customClass="PlayerVsAiViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerVsAiViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0nk-gy-aMh" customClass="PlayerVsAiViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rMI-bp-9Uo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,17 +553,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Player vs AI" id="e7W-dL-UF5">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="YHQ-E5-KD6">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="srw-Cs-7oK">
-                                                <rect key="frame" x="20" y="7" width="34" height="30"/>
+                                        <barButtonItem key="leftBarButtonItem" id="T3C-bq-YEi">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7aC-Qd-d70">
+                                                <rect key="frame" x="20" y="7" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Back"/>
                                                 <connections>
-                                                    <action selector="backButtonPressed:" destination="0nk-gy-aMh" eventType="touchUpInside" id="ayb-jc-aC6"/>
+                                                    <action selector="backButtonPressed:" destination="0nk-gy-aMh" eventType="touchUpInside" id="iT5-Q9-2JA"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mbc-n4-dAw">
+                                        <barButtonItem key="rightBarButtonItem" title="Reset" id="Mbc-n4-dAw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Dc-cP-xdC">
                                                 <rect key="frame" x="355" y="7" width="39" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -625,38 +626,49 @@
                         <outlet property="actualRound" destination="uOe-jX-Na1" id="J6v-UY-ohF"/>
                         <outlet property="communicates" destination="bWl-tp-WpP" id="aYB-hc-jbu"/>
                         <outlet property="continueButton" destination="S5b-hE-wES" id="hVW-OT-5eL"/>
+                        <segue destination="t2H-Hu-yWF" kind="presentation" identifier="showGameResultViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Ptk-qO-7oM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkR-cs-XGF" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="506" y="530"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Result View Controller-->
         <scene sceneID="R3s-Sa-ybK">
             <objects>
-                <viewController id="t2H-Hu-yWF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameResultViewController" id="t2H-Hu-yWF" customClass="GameResultViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H53-Po-2K5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-Sb-XxL">
-                                <rect key="frame" x="171" y="316" width="73" height="30"/>
+                                <rect key="frame" x="173" y="316" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New game"/>
+                                <state key="normal" title="Play again"/>
+                                <connections>
+                                    <action selector="playAgainButtonPressed:" destination="t2H-Hu-yWF" eventType="touchUpInside" id="uNV-tx-5oj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-0h-tvz">
-                                <rect key="frame" x="188" y="354" width="39" height="30"/>
+                                <rect key="frame" x="161" y="354" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu"/>
+                                <state key="normal" title="Back to menu"/>
+                                <connections>
+                                    <action selector="backToMenuButtonPressed:" destination="t2H-Hu-yWF" eventType="touchUpInside" id="ce2-W6-5nz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rCq-qJ-gIX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Zcr-1g-wXP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivl-zD-LpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1655" y="119"/>
+            <point key="canvasLocation" x="1713" y="119"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ptk-qO-7oM"/>
+    </inferredMetricsTieBreakers>
 </document>

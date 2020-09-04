@@ -213,9 +213,7 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        self.mainQueue.async {
-            self.clearButtons()
-            self.viewDidLoad()
-        }
+        self.clearButtons()
+        self.viewDidLoad()
     }
 }

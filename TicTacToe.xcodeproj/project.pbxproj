@@ -21,6 +21,7 @@
 		9D76BFDC24FC55BB007C1147 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D76BFDA24FC55BB007C1147 /* Main.storyboard */; };
 		9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472624FD4B2100660545 /* SettingsViewController.swift */; };
 		9DB2472924FD4D6200660545 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472824FD4D6200660545 /* Settings.swift */; };
+		9DDA3B5B2502A83F00BA5A3D /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9D76BFDB24FC55BB007C1147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DB2472624FD4B2100660545 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9DB2472824FD4D6200660545 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 1; path = Settings.swift; sourceTree = "<group>"; };
+		9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				9D1A225B24F718D8003D32D2 /* PlayerVsPlayerViewController.swift */,
 				9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */,
 				9DB2472624FD4B2100660545 /* SettingsViewController.swift */,
+				9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */,
 				9D15536D24FFC47B003133AF /* model */,
 			);
 			path = src;
@@ -108,8 +111,8 @@
 		9D1A226D24F71A19003D32D2 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				9D76BFDA24FC55BB007C1147 /* Main.storyboard */,
 				9D1A226224F718DC003D32D2 /* LaunchScreen.storyboard */,
+				9D76BFDA24FC55BB007C1147 /* Main.storyboard */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				9D1A225C24F718D8003D32D2 /* PlayerVsPlayerViewController.swift in Sources */,
 				9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */,
 				9D2A19A024F7273E001B4947 /* Board.swift in Sources */,
+				9DDA3B5B2502A83F00BA5A3D /* GameResultViewController.swift in Sources */,
 				9D76BFD724FBFB92007C1147 /* PlayerVsAiViewController.swift in Sources */,
 				9D74B4CE24F9143800EB2571 /* MinMaxAlgorithm.swift in Sources */,
 				9D1A225824F718D8003D32D2 /* AppDelegate.swift in Sources */,

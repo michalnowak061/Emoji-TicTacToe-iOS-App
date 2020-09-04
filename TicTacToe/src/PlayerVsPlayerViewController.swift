@@ -10,8 +10,6 @@ import UIKit
 
 class PlayerVsPlayerViewController: UIViewController {
     var gameModel: GameModel!
-    let gameModelQueue: DispatchQueue = DispatchQueue.init(label: "gameModelQueue")
-    let mainQueue: DispatchQueue = DispatchQueue.main
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,35 +22,38 @@ class PlayerVsPlayerViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
+    private func updateUI() {
         if gameModel.gameStatus != BoardStatus.continues {
             switch gameModel.gameStatus {
             case BoardStatus.win:
-                communicates.text = ActualPlayerName.text! + " wins !"
+                communicates.text = ActualPlayerName.text! + " wins the round"
+            case BoardStatus.draw:
+                communicates.text = "Draw in round"
             default:
-                communicates.text = "Draw !"
+                communicates.text = "Draw in round"
             }
             
             continueButton.isHidden = false
             blockButtons()
         }
-        
-        Player1Name.text = gameModel.playersList[0].name
-        Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
-        Player1Points.text = String(gameModel.playersList[0].points)
-        
-        Player2Name.text = gameModel.playersList[1].name
-        Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
-        Player2Points.text = String(gameModel.playersList[1].points)
-        
-        actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
-        
-        ActualPlayerName.text = gameModel.actualPlayer.name
-        ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
-        
-        if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
-            continueButton.isHidden = true
-            communicates.text = ""
+        else {
+            Player1Name.text = gameModel.playersList[0].name
+            Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
+            Player1Points.text = String(gameModel.playersList[0].points)
+            
+            Player2Name.text = gameModel.playersList[1].name
+            Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
+            Player2Points.text = String(gameModel.playersList[1].points)
+            
+            actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
+            
+            ActualPlayerName.text = gameModel.actualPlayer.name
+            ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
+            
+            if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
+                continueButton.isHidden = true
+                communicates.text = ""
+            }
         }
     }
     
@@ -78,6 +79,20 @@ class PlayerVsPlayerViewController: UIViewController {
         Button20.isUserInteractionEnabled = false
         Button21.isUserInteractionEnabled = false
         Button22.isUserInteractionEnabled = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "showGameResultViewController":
+                guard let gameResultVC: GameResultViewController = segue.destination as? GameResultViewController else {
+                    return
+                }
+                gameResultVC.previousViewControllerID = self.restorationIdentifier
+            default:
+                break
+            }
+        }
     }
     
     // @IBOutlet's
@@ -120,6 +135,11 @@ class PlayerVsPlayerViewController: UIViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
+        if gameModel.actualRound >= gameModel.roundsNumber {
+            showGameResultViewController()
+            return
+        }
+        
         gameModel.newRound()
         clearButtons()
         communicates.text = ""
@@ -128,7 +148,7 @@ class PlayerVsPlayerViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        showMenuViewController()
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
@@ -174,5 +194,19 @@ extension UIViewController {
         default:
             return (0, 0)
         }
+    }
+    
+    func showGameResultViewController() {
+        performSegue(withIdentifier: "showGameResultViewController", sender: self)
+    }
+    
+    func showMenuViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuVC = storyboard.instantiateViewController(identifier: "MenuViewController")
+        
+        menuVC.modalPresentationStyle = .fullScreen
+        menuVC.modalTransitionStyle = .flipHorizontal
+        
+        present(menuVC, animated: true, completion: nil)
     }
 }
