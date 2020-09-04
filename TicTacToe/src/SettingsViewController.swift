@@ -23,12 +23,12 @@ class SettingsViewController: UIViewController {
     
     private func updateUI() {
         difficultLevelLabel.text = settings.difficultLevelToString()
-        switch difficultLevelLabel.text {
-        case "easy":
+        switch settings.difficultLevel {
+        case GameDifficultLevel.easy.rawValue:
             difficultLevelStepper.value = 0
-        case "medium":
+        case GameDifficultLevel.medium.rawValue:
             difficultLevelStepper.value = 1
-        case "hard":
+        case GameDifficultLevel.hard.rawValue:
             difficultLevelStepper.value = 2
         default:
             break
@@ -38,11 +38,14 @@ class SettingsViewController: UIViewController {
         roundsNumberStepper.value = Double(settings.roundsNumber)
         
         switch settingsErrorCode {
+        case SettingsErrorCodes.ok?:
+            print("SettingsViewController: ok")
+            break
         case SettingsErrorCodes.loadError?:
-            print("SettingsViewController: SettingsErrorCodes.loadError")
+            print("SettingsViewController: loadError")
             break
         case SettingsErrorCodes.saveError?:
-            print("SettingsViewController: SettingsErrorCodes.saveError")
+            print("SettingsViewController: saveError")
             break
         default:
             break
@@ -56,9 +59,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var roundsNumberStepper: UIStepper!
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: {
-            self.settingsErrorCode = self.settings.save()
-        })
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func difficultLevelValueChanged(_ sender: UIStepper) {

@@ -23,8 +23,8 @@ class PlayerVsAiViewController: UIViewController {
                 self.blockButtons()
                 self.updateUI()
             }
-            self.gameModel.makeMoveAI()
             sleep(1)
+            self.gameModel.makeMoveAI()
             self.mainQueue.async {
                 self.unBlockButtons()
                 self.updateUI()
@@ -180,9 +180,9 @@ class PlayerVsAiViewController: UIViewController {
                 self.blockButtons()
                 self.updateUI()
             }
-            self.gameModel.makeMoveAI()
             sleep(1)
-            self.mainQueue.async {
+            self.gameModel.makeMoveAI()
+            self.mainQueue.sync {
                 self.unBlockButtons()
                 self.updateUI()
             }
@@ -198,8 +198,8 @@ class PlayerVsAiViewController: UIViewController {
 
             }
             self.gameModel.newRound()
-            self.gameModel.makeMoveAI()
             sleep(1)
+            self.gameModel.makeMoveAI()
             self.mainQueue.sync {
                 self.unBlockButtons()
                 self.clearButtons()

@@ -9,8 +9,8 @@
 import Foundation
 
 enum GameDifficultLevel: Int {
-    case easy = 0
-    case medium = 2
+    case easy = 2
+    case medium = 3
     case hard = 5
 }
 
@@ -23,11 +23,6 @@ enum SettingsErrorCodes {
 struct Settings: Codable {
     var difficultLevel: Int = GameDifficultLevel.easy.rawValue
     var roundsNumber: Int = 1
-    
-    enum CodingKeys: String, CodingKey {
-        case difficultLevel = "difficultLevel"
-        case roundsNumber = "roundsNumber"
-    }
     
     mutating func load() -> SettingsErrorCodes {
         let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
@@ -49,11 +44,11 @@ struct Settings: Codable {
     
     func difficultLevelToString() -> String {
         switch difficultLevel {
-        case 0:
+        case GameDifficultLevel.easy.rawValue:
             return "easy"
-        case 2:
+        case GameDifficultLevel.medium.rawValue:
             return "medium"
-        case 5:
+        case GameDifficultLevel.hard.rawValue:
             return "hard"
         default:
             return "easy"
@@ -65,15 +60,7 @@ extension Encodable {
     func saveEncodableToJSON(atPath: String) -> Bool {
         do {
             let encodedObject = try JSONEncoder().encode(self)
-            
-            if !FileManager.default.fileExists(atPath: atPath) {
-                FileManager.default.createFile(atPath: atPath, contents: encodedObject, attributes: nil)
-            }
-            else {
-                if let file = FileHandle(forWritingAtPath: atPath) {
-                    file.write(encodedObject)
-                }
-            }
+            FileManager.default.createFile(atPath: atPath, contents: encodedObject, attributes: nil)
             return true
         }
         catch {
