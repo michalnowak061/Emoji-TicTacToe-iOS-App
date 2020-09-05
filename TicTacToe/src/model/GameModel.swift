@@ -72,6 +72,25 @@ class GameModel {
         actualRound += 1
     }
     
+    public func findWinner() -> Player? {
+        var counter = 0
+        var winner = playersList[0]
+        for player in playersList {
+            if player.points > winner.points {
+                winner = player
+            }
+            else if player.points == winner.points {
+                counter += 1
+            }
+        }
+        if counter < playersList.count {
+            return winner
+        }
+        else {
+            return nil
+        }
+    }
+    
     private func generateMovementsSequence() {
         movementsSequence = []
         

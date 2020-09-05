@@ -88,6 +88,7 @@ class PlayerVsPlayerViewController: UIViewController {
                     return
                 }
                 gameResultVC.previousViewControllerID = self.restorationIdentifier
+                gameResultVC.winner = self.gameModel.findWinner()
             default:
                 break
             }
@@ -147,11 +148,6 @@ class PlayerVsPlayerViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         showMenuViewController()
-    }
-    
-    @IBAction func resetButtonPressed(_ sender: UIButton) {
-        clearButtons()
-        viewDidLoad()
     }
 }
 

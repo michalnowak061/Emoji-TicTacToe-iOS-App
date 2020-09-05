@@ -132,6 +132,7 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     private func blockButtons() {
+        navigationBar.isAccessibilityElement = false
         Button00.isUserInteractionEnabled = false
         Button01.isUserInteractionEnabled = false
         Button02.isUserInteractionEnabled = false
@@ -158,6 +159,8 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     // @IBOutlet's
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     @IBOutlet weak var Player1Name: UILabel!
     @IBOutlet weak var Player1Symbol: UILabel!
     @IBOutlet weak var Player1Points: UILabel!
@@ -213,7 +216,6 @@ class PlayerVsAiViewController: UIViewController {
                 self.clearButtons()
                 self.updateUI()
                 self.blockButtons()
-
             }
             self.gameModel.newRound()
             sleep(1)
@@ -228,10 +230,5 @@ class PlayerVsAiViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         showMenuViewController()
-    }
-    
-    @IBAction func resetButtonPressed(_ sender: UIButton) {
-        self.clearButtons()
-        self.viewDidLoad()
     }
 }

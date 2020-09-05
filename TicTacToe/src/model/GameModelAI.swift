@@ -15,9 +15,7 @@ class GameModelAI: GameModel {
         var players: [Player] = []
         players.append(player)
         players.append(Player(name: "Player AI", symbol: PlayerSymbol.Cross))
-        
         super.init(boardSize: boardSize, playersList: players)
-    
         searchingDepth = settings.difficultLevel
     }
     
