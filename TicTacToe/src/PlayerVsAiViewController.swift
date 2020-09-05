@@ -44,25 +44,26 @@ class PlayerVsAiViewController: UIViewController {
             }
             continueButton.isHidden = false
             blockButtons()
-        } else {
-            Player1Name.text = gameModel.playersList[0].name
-            Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
-            Player1Points.text = String(gameModel.playersList[0].points)
-            
-            Player2Name.text = gameModel.playersList[1].name
-            Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
-            Player2Points.text = String(gameModel.playersList[1].points)
-            
-            actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
-            
-            ActualPlayerName.text = gameModel.actualPlayer.name
-            ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
-            
-            if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
-                continueButton.isHidden = true
-                communicates.text = ""
-            }
         }
+        
+        Player1Name.text = gameModel.playersList[0].name
+        Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
+        Player1Points.text = String(gameModel.playersList[0].points)
+        
+        Player2Name.text = gameModel.playersList[1].name
+        Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
+        Player2Points.text = String(gameModel.playersList[1].points)
+        
+        actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
+        
+        ActualPlayerName.text = gameModel.actualPlayer.name
+        ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
+        
+        if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
+            continueButton.isHidden = true
+            communicates.text = ""
+        }
+        
         boardToButtons()
     }
     
@@ -152,6 +153,7 @@ class PlayerVsAiViewController: UIViewController {
                     return
                 }
                 gameResultVC.previousViewControllerID = self.restorationIdentifier
+                gameResultVC.winner = self.gameModel.findWinner()
             default:
                 break
             }

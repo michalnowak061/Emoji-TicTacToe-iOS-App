@@ -38,8 +38,14 @@ class GameResultViewController: UIViewController {
             resultImageView.image = ResultFace.drawFace.image
         }
         else {
-            resultLabel.text = winner!.name + " is a winner"
-            resultImageView.image = ResultFace.winFace.image
+            if winner!.name == "Player AI" {
+                resultLabel.text = "You lose"
+                resultImageView.image = ResultFace.loseFace.image
+            }
+            else {
+                resultLabel.text = winner!.name + " is a winner"
+                resultImageView.image = ResultFace.winFace.image
+            }
         }
     }
     
