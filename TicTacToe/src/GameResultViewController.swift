@@ -51,7 +51,7 @@ class GameResultViewController: UIViewController {
     
     private func showPlayerVsPlayerViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let PlayerVsPlayerVC = storyboard.instantiateViewController(identifier: "PlayerVsPlayerViewController")
+        let PlayerVsPlayerVC = storyboard.instantiateViewController(identifier: "PlayerVsPlayerVC")
         
         PlayerVsPlayerVC.modalPresentationStyle = .fullScreen
         PlayerVsPlayerVC.modalTransitionStyle = .flipHorizontal
@@ -75,7 +75,7 @@ class GameResultViewController: UIViewController {
     
     @IBAction func playAgainButtonPressed(_ sender: UIButton) {
         switch previousViewControllerID {
-        case "PlayerVsPlayerViewController":
+        case "PlayerVsPlayerVC":
             showPlayerVsPlayerViewController()
             break
         case "PlayerVsAiViewController":

@@ -10,15 +10,12 @@ import UIKit
 
 class PlayerVsPlayerViewController: UIViewController {
     var gameModel: GameModel!
+    static var players: [Player] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var players: [Player] = []
-        players.append(Player(name: "Player1", symbol: PlayerSymbol.Circle))
-        players.append(Player(name: "Player2", symbol: PlayerSymbol.Cross))
-        
-        gameModel = GameModel.init(boardSize: 3, playersList: players)
+      
+        gameModel = GameModel.init(boardSize: 3, playersList: PlayerVsPlayerViewController.players)
         updateUI()
     }
     

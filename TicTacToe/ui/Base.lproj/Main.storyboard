@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Player vs Player"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="showPlayerVsPlayerViewController" modalPresentationStyle="fullScreen" id="6Da-WS-7pb"/>
+                                    <segue destination="E7i-eT-kVE" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="2Xf-rQ-JxC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbr-Mb-Rpb">
@@ -63,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4y-1r-O97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668" y="119"/>
+            <point key="canvasLocation" x="-1493" y="56"/>
         </scene>
         <!--Title-->
         <scene sceneID="dQr-hW-gcB">
@@ -147,12 +148,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="he2-EB-Het" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668.11594202898561" y="897.99107142857133"/>
+            <point key="canvasLocation" x="-1459" y="869"/>
+        </scene>
+        <!--Player Vs Player SettingsVC-->
+        <scene sceneID="7Pf-64-Rik">
+            <objects>
+                <viewController id="E7i-eT-kVE" customClass="PlayerVsPlayerSettingsVC" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ecH-qP-p9O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player vs Player settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b11-cg-fcr">
+                                <rect key="frame" x="52" y="44" width="311" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePA-Wp-HrU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="729"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="QBH-sx-2CJ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="FD9-jz-DlV"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Wvp-Yq-DFP">
+                                <rect key="frame" x="20" y="825" width="374" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="KFI-B5-NA8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f2p-8S-dgb"/>
+                    <connections>
+                        <outlet property="pageControll" destination="Wvp-Yq-DFP" id="ceB-dO-6II"/>
+                        <outlet property="scrollView" destination="ePA-Wp-HrU" id="OK2-e3-UMY"/>
+                        <segue destination="Ydc-6i-NnW" kind="presentation" id="Ldg-V4-WsG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRl-gV-7ez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713.04347826086962" y="-721.20535714285711"/>
         </scene>
         <!--Player Vs Player View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="PlayerVsPlayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PlayerVsPlayerViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerVsPlayerVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PlayerVsPlayerViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -380,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="-229"/>
+            <point key="canvasLocation" x="-713" y="56"/>
         </scene>
         <!--Player Vs Ai View Controller-->
         <scene sceneID="07g-3V-cfn">
@@ -614,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkR-cs-XGF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="530"/>
+            <point key="canvasLocation" x="-713" y="869"/>
         </scene>
         <!--Game Result View Controller-->
         <scene sceneID="R3s-Sa-ybK">
@@ -665,10 +708,272 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivl-zD-LpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711.5942028985507" y="118.52678571428571"/>
+            <point key="canvasLocation" x="880" y="443"/>
+        </scene>
+        <!--First Player SettingsVC-->
+        <scene sceneID="Ohc-hO-AJA">
+            <objects>
+                <viewController storyboardIdentifier="FirstPlayerSettingsVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ydc-6i-NnW" customClass="FirstPlayerSettingsVC" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eY3-D0-06a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Player Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GI6-cr-UJj">
+                                <rect key="frame" x="100" y="44" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player 1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-bF-sZm">
+                                <rect key="frame" x="139" y="114" width="255" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dam-Ck-spg">
+                                <rect key="frame" x="16" y="114" width="115" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symbol:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-EM-Cnh">
+                                <rect key="frame" x="16" y="156" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oDc-4w-bnR">
+                                <rect key="frame" x="20" y="185" width="374" height="677"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SWo-wI-Mpk">
+                                    <size key="itemSize" width="64" height="74"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JnM-Ah-AnW">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jar-QH-GcL">
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="64" height="74"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AHK-jX-O8N"/>
+                    <connections>
+                        <outlet property="playerNameTextField" destination="Mmp-bF-sZm" id="2oZ-2W-PgM"/>
+                        <segue destination="QNa-4t-FDf" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="ZRR-FM-dbJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahP-u8-15o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="-721.20535714285711"/>
+        </scene>
+        <!--Second Player SettingsVC-->
+        <scene sceneID="zMJ-Ml-51E">
+            <objects>
+                <viewController storyboardIdentifier="SecondPlayerSettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QNa-4t-FDf" customClass="SecondPlayerSettingsVC" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qml-Bs-ZmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player 2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1HO-te-1BG">
+                                <rect key="frame" x="139" y="115" width="255" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-nh-L9L">
+                                <rect key="frame" x="16" y="115" width="115" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symbol:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-kF-aDw">
+                                <rect key="frame" x="16" y="157" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U96-bi-FvT">
+                                <rect key="frame" x="16" y="186" width="378" height="676"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4vf-De-avh">
+                                    <size key="itemSize" width="64" height="74"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rfN-CV-7XK">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cKu-gF-dwU">
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="64" height="74"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second Player Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Xa-CPZ">
+                                <rect key="frame" x="82" y="44" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="10B-4p-Gml"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xl9-Yx-0W2"/>
+                    <connections>
+                        <outlet property="playerNameTextField" destination="1HO-te-1BG" id="o7g-MW-PPL"/>
+                        <segue destination="Bul-lY-eF5" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="LKb-Js-jin"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1j1-ei-VRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879.71014492753625" y="-723.21428571428567"/>
+        </scene>
+        <!--Player Vs Player Settings SummaryVC-->
+        <scene sceneID="rj5-JI-oIe">
+            <objects>
+                <viewController storyboardIdentifier="PlayerVsPlayerSettingsSummaryVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bul-lY-eF5" customClass="PlayerVsPlayerSettingsSummaryVC" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9iu-F0-5jc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUd-6g-WQ7">
+                                <rect key="frame" x="155" y="44" width="104" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Player1 name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pA-mD-jh0">
+                                <rect key="frame" x="20" y="108" width="158" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="MbY-8P-3xO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Player2 name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-7f-f7W">
+                                <rect key="frame" x="20" y="242" width="158" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1su-TO-aRq">
+                                <rect key="frame" x="186" y="115" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-Ks-PXA">
+                                <rect key="frame" x="186" y="249" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Player1 symbol:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdb-5A-vK9">
+                                <rect key="frame" x="20" y="150" width="160" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="cO6-c2-exN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bE-9G-ZIR">
+                                <rect key="frame" x="188" y="157" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Player1 symbol:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SM6-DG-g5U">
+                                <rect key="frame" x="20" y="284" width="160" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW4-rr-SyI">
+                                <rect key="frame" x="188" y="291" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-F1-pC2">
+                                <rect key="frame" x="136" y="814" width="142" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start game"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="PlayerVsPlayerVCSegue" id="7cU-H4-c6g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fdb-5A-vK9" firstAttribute="centerY" secondItem="8bE-9G-ZIR" secondAttribute="centerY" id="0Y6-Xs-U7T"/>
+                            <constraint firstItem="1su-TO-aRq" firstAttribute="leading" secondItem="FJz-Ks-PXA" secondAttribute="leading" id="3Kp-lX-SRl"/>
+                            <constraint firstItem="6pA-mD-jh0" firstAttribute="leading" secondItem="9iu-F0-5jc" secondAttribute="leadingMargin" id="5nq-Ge-4b4"/>
+                            <constraint firstItem="8bE-9G-ZIR" firstAttribute="trailing" secondItem="FJz-Ks-PXA" secondAttribute="trailing" id="654-ps-gDa"/>
+                            <constraint firstItem="SM6-DG-g5U" firstAttribute="centerY" secondItem="CW4-rr-SyI" secondAttribute="centerY" id="77z-Gn-alH"/>
+                            <constraint firstItem="CW4-rr-SyI" firstAttribute="top" secondItem="FJz-Ks-PXA" secondAttribute="bottom" constant="21" id="7J5-A3-s7v"/>
+                            <constraint firstItem="fdb-5A-vK9" firstAttribute="leading" secondItem="VhP-7f-f7W" secondAttribute="leading" id="9OR-0S-BeK"/>
+                            <constraint firstItem="8bE-9G-ZIR" firstAttribute="leading" secondItem="fdb-5A-vK9" secondAttribute="trailing" constant="8" id="ENh-As-qdj"/>
+                            <constraint firstItem="1su-TO-aRq" firstAttribute="leading" secondItem="6pA-mD-jh0" secondAttribute="trailing" constant="8" id="Gwe-mf-1Fn"/>
+                            <constraint firstItem="1su-TO-aRq" firstAttribute="top" secondItem="DUd-6g-WQ7" secondAttribute="bottom" constant="41" id="Kou-CZ-JGM"/>
+                            <constraint firstItem="6pA-mD-jh0" firstAttribute="leading" secondItem="fdb-5A-vK9" secondAttribute="leading" id="M8H-6r-dc5"/>
+                            <constraint firstItem="1su-TO-aRq" firstAttribute="trailing" secondItem="9iu-F0-5jc" secondAttribute="trailingMargin" id="N0a-oV-9jY"/>
+                            <constraint firstItem="6pA-mD-jh0" firstAttribute="trailing" secondItem="VhP-7f-f7W" secondAttribute="trailing" id="On0-xV-Amr"/>
+                            <constraint firstItem="8bE-9G-ZIR" firstAttribute="top" secondItem="1su-TO-aRq" secondAttribute="bottom" constant="21" id="PlN-vf-miU"/>
+                            <constraint firstItem="VhP-7f-f7W" firstAttribute="top" secondItem="fdb-5A-vK9" secondAttribute="bottom" constant="58" id="S40-KU-zhA"/>
+                            <constraint firstItem="8bE-9G-ZIR" firstAttribute="leading" secondItem="CW4-rr-SyI" secondAttribute="leading" id="SsS-wj-9l1"/>
+                            <constraint firstItem="FJz-Ks-PXA" firstAttribute="top" secondItem="8bE-9G-ZIR" secondAttribute="bottom" constant="71" id="WPb-w8-eVh"/>
+                            <constraint firstItem="DUd-6g-WQ7" firstAttribute="centerX" secondItem="cPr-F1-pC2" secondAttribute="centerX" id="YSp-dr-Hc4"/>
+                            <constraint firstItem="fdb-5A-vK9" firstAttribute="top" secondItem="6pA-mD-jh0" secondAttribute="bottom" constant="8" id="cRx-T6-TTn"/>
+                            <constraint firstItem="VhP-7f-f7W" firstAttribute="centerY" secondItem="FJz-Ks-PXA" secondAttribute="centerY" id="cyV-4t-Ejl"/>
+                            <constraint firstItem="fdb-5A-vK9" firstAttribute="trailing" secondItem="SM6-DG-g5U" secondAttribute="trailing" id="g9J-DU-1rh"/>
+                            <constraint firstItem="FJz-Ks-PXA" firstAttribute="trailing" secondItem="CW4-rr-SyI" secondAttribute="trailing" id="guG-d6-r1U"/>
+                            <constraint firstItem="VhP-7f-f7W" firstAttribute="leading" secondItem="SM6-DG-g5U" secondAttribute="leading" id="hFW-iQ-Gl6"/>
+                            <constraint firstItem="cPr-F1-pC2" firstAttribute="bottom" secondItem="02L-eB-cDH" secondAttribute="bottom" id="k3B-SV-xlk"/>
+                            <constraint firstItem="DUd-6g-WQ7" firstAttribute="centerX" secondItem="9iu-F0-5jc" secondAttribute="centerX" id="mU4-Ov-cK1"/>
+                            <constraint firstItem="6pA-mD-jh0" firstAttribute="top" secondItem="DUd-6g-WQ7" secondAttribute="bottom" constant="34" id="mWf-Io-xvg"/>
+                            <constraint firstItem="1su-TO-aRq" firstAttribute="trailing" secondItem="8bE-9G-ZIR" secondAttribute="trailing" id="mch-7q-qAM"/>
+                            <constraint firstItem="6pA-mD-jh0" firstAttribute="centerY" secondItem="1su-TO-aRq" secondAttribute="centerY" id="n8k-D5-Fup"/>
+                            <constraint firstItem="SM6-DG-g5U" firstAttribute="top" secondItem="VhP-7f-f7W" secondAttribute="bottom" constant="8" id="qrH-yW-B6k"/>
+                            <constraint firstItem="DUd-6g-WQ7" firstAttribute="top" secondItem="02L-eB-cDH" secondAttribute="top" id="zCQ-dn-Q7b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="02L-eB-cDH"/>
+                    </view>
+                    <connections>
+                        <outlet property="player1NameLabel" destination="1su-TO-aRq" id="mBY-7D-8S7"/>
+                        <outlet property="player2NameLabel" destination="FJz-Ks-PXA" id="kxD-Rh-kxx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEu-TC-CjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="-723"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ptk-qO-7oM"/>
+        <segue reference="hNF-nk-isv"/>
     </inferredMetricsTieBreakers>
 </document>

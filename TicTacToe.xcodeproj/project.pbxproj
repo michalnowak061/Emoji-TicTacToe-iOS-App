@@ -24,6 +24,10 @@
 		9DC3824B25040BEF00A334EC /* draw_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824825040BEE00A334EC /* draw_face.png */; };
 		9DC3824C25040BEF00A334EC /* lose_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824925040BEE00A334EC /* lose_face.png */; };
 		9DC3824D25040BEF00A334EC /* win_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824A25040BEE00A334EC /* win_face.png */; };
+		9DC3825125054B3800A334EC /* PlayerVsPlayerSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825025054B3800A334EC /* PlayerVsPlayerSettingsVC.swift */; };
+		9DC3825325054FFC00A334EC /* FirstPlayerSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */; };
+		9DC3825525055F2A00A334EC /* SecondPlayerSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */; };
+		9DC38257250587AC00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */; };
 		9DDA3B5B2502A83F00BA5A3D /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		9DC3824825040BEE00A334EC /* draw_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw_face.png; sourceTree = "<group>"; };
 		9DC3824925040BEE00A334EC /* lose_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose_face.png; sourceTree = "<group>"; };
 		9DC3824A25040BEE00A334EC /* win_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win_face.png; sourceTree = "<group>"; };
+		9DC3825025054B3800A334EC /* PlayerVsPlayerSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVsPlayerSettingsVC.swift; sourceTree = "<group>"; };
+		9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPlayerSettingsVC.swift; sourceTree = "<group>"; };
+		9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPlayerSettingsVC.swift; sourceTree = "<group>"; };
+		9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVsPlayerSettingsSummaryVC.swift; sourceTree = "<group>"; };
 		9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,10 @@
 			children = (
 				9D1A225724F718D8003D32D2 /* AppDelegate.swift */,
 				9D1A225924F718D8003D32D2 /* SceneDelegate.swift */,
+				9DC3825025054B3800A334EC /* PlayerVsPlayerSettingsVC.swift */,
+				9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */,
+				9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */,
+				9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */,
 				9D1A225B24F718D8003D32D2 /* PlayerVsPlayerViewController.swift */,
 				9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */,
 				9DB2472624FD4B2100660545 /* SettingsViewController.swift */,
@@ -220,15 +232,19 @@
 				9D2A199E24F72731001B4947 /* Player.swift in Sources */,
 				9D76BFD524FBF202007C1147 /* GameModelAI.swift in Sources */,
 				9D1A225C24F718D8003D32D2 /* PlayerVsPlayerViewController.swift in Sources */,
+				9DC3825125054B3800A334EC /* PlayerVsPlayerSettingsVC.swift in Sources */,
+				9DC38257250587AC00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift in Sources */,
 				9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */,
 				9D2A19A024F7273E001B4947 /* Board.swift in Sources */,
 				9DDA3B5B2502A83F00BA5A3D /* GameResultViewController.swift in Sources */,
 				9D76BFD724FBFB92007C1147 /* PlayerVsAiViewController.swift in Sources */,
 				9D74B4CE24F9143800EB2571 /* MinMaxAlgorithm.swift in Sources */,
+				9DC3825525055F2A00A334EC /* SecondPlayerSettingsVC.swift in Sources */,
 				9D1A225824F718D8003D32D2 /* AppDelegate.swift in Sources */,
 				9D1A225A24F718D8003D32D2 /* SceneDelegate.swift in Sources */,
 				9DB2472924FD4D6200660545 /* Settings.swift in Sources */,
 				9D2A19A224F7274A001B4947 /* GameModel.swift in Sources */,
+				9DC3825325054FFC00A334EC /* FirstPlayerSettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
