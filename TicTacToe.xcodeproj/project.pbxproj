@@ -28,6 +28,7 @@
 		9DC3825325054FFC00A334EC /* FirstPlayerSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */; };
 		9DC3825525055F2A00A334EC /* SecondPlayerSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */; };
 		9DC38257250587AC00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */; };
+		9DC3825B25066ED500A334EC /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC3825A25066ED500A334EC /* EmojiCollectionViewCell.swift */; };
 		9DDA3B5B2502A83F00BA5A3D /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPlayerSettingsVC.swift; sourceTree = "<group>"; };
 		9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPlayerSettingsVC.swift; sourceTree = "<group>"; };
 		9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVsPlayerSettingsSummaryVC.swift; sourceTree = "<group>"; };
+		9DC3825A25066ED500A334EC /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DDA3B5A2502A83F00BA5A3D /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				9DC3825025054B3800A334EC /* PlayerVsPlayerSettingsVC.swift */,
 				9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */,
 				9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */,
+				9DC3825A25066ED500A334EC /* EmojiCollectionViewCell.swift */,
 				9DC38256250587AB00A334EC /* PlayerVsPlayerSettingsSummaryVC.swift */,
 				9D1A225B24F718D8003D32D2 /* PlayerVsPlayerViewController.swift */,
 				9D76BFD624FBFB92007C1147 /* PlayerVsAiViewController.swift */,
@@ -244,6 +247,7 @@
 				9D1A225A24F718D8003D32D2 /* SceneDelegate.swift in Sources */,
 				9DB2472924FD4D6200660545 /* Settings.swift in Sources */,
 				9D2A19A224F7274A001B4947 /* GameModel.swift in Sources */,
+				9DC3825B25066ED500A334EC /* EmojiCollectionViewCell.swift in Sources */,
 				9DC3825325054FFC00A334EC /* FirstPlayerSettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

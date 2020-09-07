@@ -46,11 +46,17 @@ class PlayerVsPlayerSettingsVC: UIViewController {
         let secondSubView = subViewControllers[1] as! SecondPlayerSettingsVC
         let thirdSubView = subViewControllers[2] as! PlayerVsPlayerSettingsSummaryVC
         thirdSubView.player1NameLabel.text = firstSubView.playerNameTextField.text
+        thirdSubView.player1Symbol.text = firstSubView.playerSymbolLabel.text
         thirdSubView.player2NameLabel.text = secondSubView.playerNameTextField.text
+        thirdSubView.player2Symbol.text = secondSubView.playerSymbolLabel.text
     }
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControll: UIPageControl!
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        showMenuViewController()
+    }
 }
 
 extension PlayerVsPlayerSettingsVC: UIScrollViewDelegate {
