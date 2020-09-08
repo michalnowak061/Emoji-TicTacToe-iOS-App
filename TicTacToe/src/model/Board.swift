@@ -15,21 +15,21 @@ enum BoardStatus {
 }
 
 struct Board {
-    var table: [[Int]] = [[Int]]()
+    var table: [[String]] = [[String]]()
     var size = 0
     
     init(size: Int) {
         self.size = size
-        table = Array(repeating: Array(repeating: 0, count: size), count: size)
+        table = Array(repeating: Array(repeating: "0", count: size), count: size)
     }
     
     mutating func makeMove(player: Player, position: (column: Int, row: Int)) {
         let symbol = player.symbol
-        table[position.column][position.row] = symbol.rawValue
+        table[position.column][position.row] = symbol
     }
     
     func check(player: Player) -> BoardStatus {
-        let playerSymbol: Int = player.symbol.rawValue
+        let playerSymbol: String = player.symbol
         
         // Searching WIN in row's
         for i in 0...size-1 {
@@ -131,7 +131,7 @@ struct Board {
         // Searching not draw
         for i in 0...size-1 {
             for j in 0...size-1 {
-                if table[i][j] == 0 {
+                if table[i][j] == "0" {
                      return BoardStatus.continues
                 }
             }
@@ -141,7 +141,7 @@ struct Board {
     }
     
     mutating func clear() {
-        table = Array(repeating: Array(repeating: 0, count: size), count: size)
+        table = Array(repeating: Array(repeating: "0", count: size), count: size)
     }
     
     func printBoard() {

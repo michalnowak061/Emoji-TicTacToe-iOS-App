@@ -34,17 +34,17 @@ class PlayerVsPlayerViewController: UIViewController {
         }
         
         Player1Name.text = gameModel.playersList[0].name
-        Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
+        Player1Symbol.text = gameModel.playersList[0].symbol
         Player1Points.text = String(gameModel.playersList[0].points)
         
         Player2Name.text = gameModel.playersList[1].name
-        Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
+        Player2Symbol.text = gameModel.playersList[1].symbol
         Player2Points.text = String(gameModel.playersList[1].points)
         
         actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
         
         ActualPlayerName.text = gameModel.actualPlayer.name
-        ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
+        ActualPlayerSymbol.text = gameModel.actualPlayer.symbol
         
         if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
             continueButton.isHidden = true
@@ -148,18 +148,20 @@ class PlayerVsPlayerViewController: UIViewController {
 }
 
 extension UIViewController {
+    /*
     func symbolToIcon(symbol: PlayerSymbol) -> String {
-        switch symbol.rawValue {
-        case 0:
+        switch symbol {
+        case "0":
             return "Null"
-        case 1:
+        case "1":
             return "⭕️"
-        case 2:
+        case "2":
             return "❌"
         default:
             return "Null"
         }
     }
+     */
     
     func buttonIDtoPosition(id: String) -> (Int, Int) {
         switch id {

@@ -11,11 +11,8 @@ import Foundation
 class GameModelAI: GameModel {
     var searchingDepth: Int = 0
     
-    init(boardSize: Int, player: Player) {
-        var players: [Player] = []
-        players.append(player)
-        players.append(Player(name: "Player AI", symbol: PlayerSymbol.Cross))
-        super.init(boardSize: boardSize, playersList: players)
+    override init(boardSize: Int, playersList: [Player]) {
+        super.init(boardSize: boardSize, playersList: playersList)
         searchingDepth = settings.difficultLevel
     }
     
@@ -25,7 +22,7 @@ class GameModelAI: GameModel {
         }
         
         let selectedPosition: (column: Int, row: Int) = minMaxMove(board: board, player: playersList[0], opponent: playersList[1], depth: searchingDepth)
-        guard board.table[selectedPosition.column][selectedPosition.row] == 0 else {
+        guard board.table[selectedPosition.column][selectedPosition.row] == "0" else {
             return
         }
         

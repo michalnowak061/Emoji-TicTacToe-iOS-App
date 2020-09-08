@@ -1,14 +1,14 @@
 //
-//  PlayerVsPlayerSettingsSummaryVC.swift
+//  PlayerVsAiSettingsSummaryVC.swift
 //  TicTacToe
 //
-//  Created by Michał Nowak on 06/09/2020.
+//  Created by Michał Nowak on 08/09/2020.
 //  Copyright © 2020 none. All rights reserved.
 //
 
 import UIKit
 
-class PlayerVsPlayerSettingsSummaryVC: UIViewController {
+class PlayerVsAiSettingsSummaryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,10 +16,10 @@ class PlayerVsPlayerSettingsSummaryVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "PlayerVsPlayerVCSegue":
-                PlayerVsPlayerViewController.players = []
-                PlayerVsPlayerViewController.players.append(Player(name: player1NameLabel.text!, symbol: player1Symbol.text!))
-                PlayerVsPlayerViewController.players.append(Player(name: player2NameLabel.text!, symbol: player2Symbol.text!))
+            case "PlayerVsAiVCSegue":
+                PlayerVsAiViewController.players = []
+                PlayerVsAiViewController.players.append(Player(name: player1NameLabel.text!, symbol: player1Symbol.text!))
+                PlayerVsAiViewController.players.append(Player(name: player2NameLabel.text!, symbol: player2Symbol.text!))
             default:
                 break
             }

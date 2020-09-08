@@ -13,12 +13,11 @@ class PlayerVsAiViewController: UIViewController {
     var gameModel: GameModelAI!
     let gameModelQueue: DispatchQueue = DispatchQueue.init(label: "gameModelQueue")
     let mainQueue: DispatchQueue = DispatchQueue.main
+    static var players: [Player] = []
     
     override func viewDidLoad() {
-        let player = Player(name: "Player1", symbol: PlayerSymbol.Circle)
-        
         gameModelQueue.async {
-            self.gameModel = GameModelAI.init(boardSize: 3, player: player)
+            self.gameModel = GameModelAI.init(boardSize: 3, playersList: PlayerVsAiViewController.players)
             self.mainQueue.async {
                 self.blockButtons()
                 self.updateUI()
@@ -47,17 +46,17 @@ class PlayerVsAiViewController: UIViewController {
         }
         
         Player1Name.text = gameModel.playersList[0].name
-        Player1Symbol.text = symbolToIcon(symbol: gameModel.playersList[0].symbol)
+        Player1Symbol.text = gameModel.playersList[0].symbol
         Player1Points.text = String(gameModel.playersList[0].points)
         
         Player2Name.text = gameModel.playersList[1].name
-        Player2Symbol.text = symbolToIcon(symbol: gameModel.playersList[1].symbol)
+        Player2Symbol.text = gameModel.playersList[1].symbol
         Player2Points.text = String(gameModel.playersList[1].points)
         
         actualRound.text = String(gameModel.actualRound) + " / " + String(gameModel.roundsNumber)
         
         ActualPlayerName.text = gameModel.actualPlayer.name
-        ActualPlayerSymbol.text = symbolToIcon(symbol: gameModel.actualPlayer.symbol)
+        ActualPlayerSymbol.text = gameModel.actualPlayer.symbol
         
         if gameModel.gameStatus != BoardStatus.win && gameModel.gameStatus != BoardStatus.draw {
             continueButton.isHidden = true
@@ -68,42 +67,42 @@ class PlayerVsAiViewController: UIViewController {
     }
     
     public func boardToButtons() {
-        if gameModel.board.table[0][0] != 0 {
-            Button00.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][0])!), for: .normal);
+        if gameModel.board.table[0][0] != "0" {
+            Button00.setTitle(PlayerSymbol(gameModel.board.table[0][0]), for: .normal);
             Button00.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[0][1] != 0 {
-            Button01.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][1])!), for: .normal);
+        if gameModel.board.table[0][1] != "0" {
+            Button01.setTitle(PlayerSymbol(gameModel.board.table[0][1]), for: .normal);
             Button01.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[0][2] != 0 {
-            Button02.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[0][2])!), for: .normal);
+        if gameModel.board.table[0][2] != "0" {
+            Button02.setTitle(PlayerSymbol(gameModel.board.table[0][2]), for: .normal);
             Button02.isUserInteractionEnabled = false
         }
         
-        if gameModel.board.table[1][0] != 0 {
-            Button10.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][0])!), for: .normal);
+        if gameModel.board.table[1][0] != "0" {
+            Button10.setTitle(PlayerSymbol(gameModel.board.table[1][0]), for: .normal);
             Button10.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[1][1] != 0 {
-            Button11.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][1])!), for: .normal);
+        if gameModel.board.table[1][1] != "0" {
+            Button11.setTitle(PlayerSymbol(gameModel.board.table[1][1]), for: .normal);
             Button11.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[1][2] != 0 {
-            Button12.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[1][2])!), for: .normal);
+        if gameModel.board.table[1][2] != "0" {
+            Button12.setTitle(PlayerSymbol(gameModel.board.table[1][2]), for: .normal);
             Button12.isUserInteractionEnabled = false
         }
         
-        if gameModel.board.table[2][0] != 0 {
-            Button20.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][0])!), for: .normal);
+        if gameModel.board.table[2][0] != "0" {
+            Button20.setTitle(PlayerSymbol(gameModel.board.table[2][0]), for: .normal);
             Button20.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[2][1] != 0 {
-            Button21.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][1])!), for: .normal);
+        if gameModel.board.table[2][1] != "0" {
+            Button21.setTitle(PlayerSymbol(gameModel.board.table[2][1]), for: .normal);
             Button21.isUserInteractionEnabled = false
         }
-        if gameModel.board.table[2][2] != 0 {
-            Button22.setTitle(symbolToIcon(symbol: PlayerSymbol(rawValue: gameModel.board.table[2][2])!), for: .normal);
+        if gameModel.board.table[2][2] != "0" {
+            Button22.setTitle(PlayerSymbol(gameModel.board.table[2][2]), for: .normal);
             Button22.isUserInteractionEnabled = false
         }
     }

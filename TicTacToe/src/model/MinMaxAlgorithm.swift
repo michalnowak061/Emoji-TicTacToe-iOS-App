@@ -36,7 +36,7 @@ func minMax(board: Board, player: Player, opponent: Player, depth: Int, alpha: I
         
         for i in 0...board.size-1 {
             for j in 0...board.size-1 {
-                if board.table[i][j] == 0 {
+                if board.table[i][j] == "0" {
                     var tempBoard = board
                     tempBoard.makeMove(player: player, position: (i,j))
                     let eval = minMax(board: tempBoard, player: player, opponent: opponent, depth: depth-1, alpha: alpha, beta: beta, maximizingPlayer: !maximizingPlayer)
@@ -56,7 +56,7 @@ func minMax(board: Board, player: Player, opponent: Player, depth: Int, alpha: I
         
         for i in 0...board.size-1 {
             for j in 0...board.size-1 {
-                if board.table[i][j] == 0 {
+                if board.table[i][j] == "0" {
                     var tempBoard = board
                     tempBoard.makeMove(player: opponent, position: (i,j))
                     let eval = minMax(board: tempBoard, player: player, opponent: opponent, depth: depth-1, alpha: alpha, beta: beta, maximizingPlayer: !maximizingPlayer)
@@ -79,7 +79,7 @@ func minMaxMove(board: Board, player: Player, opponent: Player, depth: Int) -> (
     
     for i in 0...board.size-1 {
         for j in 0...board.size-1 {
-            if board.table[i][j] == 0 {
+            if board.table[i][j] == "0" {
                 var tempBoard = board
                 let move = (i, j)
                 

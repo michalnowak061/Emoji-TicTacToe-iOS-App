@@ -57,7 +57,7 @@ class GameModel {
     }
     
     public func playerMakeMove(selectedPosition: (column: Int, row: Int)) {
-        guard board.table[selectedPosition.column][selectedPosition.row] == 0 else {
+        guard board.table[selectedPosition.column][selectedPosition.row] == "0" else {
             return
         }
         board.makeMove(player: actualPlayer, position: selectedPosition)

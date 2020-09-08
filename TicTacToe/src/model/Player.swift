@@ -8,11 +8,14 @@
 
 import Foundation
 
+/*
 enum PlayerSymbol: Int {
     case Null
     case Circle
     case Cross
-}
+}*/
+
+typealias PlayerSymbol = String
 
 struct Player {
     var name: String
