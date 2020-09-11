@@ -21,6 +21,7 @@
 		9D76BFDC24FC55BB007C1147 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D76BFDA24FC55BB007C1147 /* Main.storyboard */; };
 		9DB2472724FD4B2100660545 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472624FD4B2100660545 /* SettingsViewController.swift */; };
 		9DB2472924FD4D6200660545 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2472824FD4D6200660545 /* Settings.swift */; };
+		9DB63A15250A445600EE4FE5 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB63A14250A445600EE4FE5 /* MenuVC.swift */; };
 		9DC3824B25040BEF00A334EC /* draw_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824825040BEE00A334EC /* draw_face.png */; };
 		9DC3824C25040BEF00A334EC /* lose_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824925040BEE00A334EC /* lose_face.png */; };
 		9DC3824D25040BEF00A334EC /* win_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC3824A25040BEE00A334EC /* win_face.png */; };
@@ -53,6 +54,7 @@
 		9D76BFDB24FC55BB007C1147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DB2472624FD4B2100660545 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9DB2472824FD4D6200660545 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 1; path = Settings.swift; sourceTree = "<group>"; };
+		9DB63A14250A445600EE4FE5 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		9DC3824825040BEE00A334EC /* draw_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw_face.png; sourceTree = "<group>"; };
 		9DC3824925040BEE00A334EC /* lose_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose_face.png; sourceTree = "<group>"; };
 		9DC3824A25040BEE00A334EC /* win_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win_face.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				9D1A225724F718D8003D32D2 /* AppDelegate.swift */,
 				9D1A225924F718D8003D32D2 /* SceneDelegate.swift */,
+				9DB63A14250A445600EE4FE5 /* MenuVC.swift */,
 				9DC3825025054B3800A334EC /* PlayerVsPlayerSettingsVC.swift */,
 				9DC3825225054FFC00A334EC /* FirstPlayerSettingsVC.swift */,
 				9DC3825425055F2A00A334EC /* SecondPlayerSettingsVC.swift */,
@@ -261,6 +264,7 @@
 				9D1A225824F718D8003D32D2 /* AppDelegate.swift in Sources */,
 				9D1A225A24F718D8003D32D2 /* SceneDelegate.swift in Sources */,
 				9DC382632507C16700A334EC /* PlayerVsAiSettingsSummaryVC.swift in Sources */,
+				9DB63A15250A445600EE4FE5 /* MenuVC.swift in Sources */,
 				9DB2472924FD4D6200660545 /* Settings.swift in Sources */,
 				9D2A19A224F7274A001B4947 /* GameModel.swift in Sources */,
 				9DC3825B25066ED500A334EC /* EmojiCollectionViewCell.swift in Sources */,
