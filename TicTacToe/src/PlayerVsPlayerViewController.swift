@@ -194,7 +194,7 @@ extension UIViewController {
     
     func showMenuViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuVC = storyboard.instantiateViewController(identifier: "MenuViewController")
+        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
         
         menuVC.modalPresentationStyle = .fullScreen
         menuVC.modalTransitionStyle = .flipHorizontal

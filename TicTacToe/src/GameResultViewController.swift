@@ -51,7 +51,7 @@ class GameResultViewController: UIViewController {
     
     private func showPlayerVsPlayerViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let PlayerVsPlayerVC = storyboard.instantiateViewController(identifier: "PlayerVsPlayerVC")
+        let PlayerVsPlayerVC = storyboard.instantiateViewController(withIdentifier: "PlayerVsPlayerVC")
         
         PlayerVsPlayerVC.modalPresentationStyle = .fullScreen
         PlayerVsPlayerVC.modalTransitionStyle = .flipHorizontal
@@ -61,7 +61,7 @@ class GameResultViewController: UIViewController {
     
     private func showPlayerVsAiViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let PlayerVsAiVC = storyboard.instantiateViewController(identifier: "PlayerVsAiViewController")
+        let PlayerVsAiVC = storyboard.instantiateViewController(withIdentifier: "PlayerVsAiViewController")
         
         PlayerVsAiVC.modalPresentationStyle = .fullScreen
         PlayerVsAiVC.modalTransitionStyle = .flipHorizontal
