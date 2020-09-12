@@ -17,6 +17,7 @@ class AiPlayerSettingsVC: UIViewController {
         playerSymbolLabel.text = emojiList[0][0]
         playerSymbolCollectionView.delegate = self
         playerSymbolCollectionView.dataSource = self
+        playerNameTextField.delegate = self
     }
     
     func fetchEmojis(){

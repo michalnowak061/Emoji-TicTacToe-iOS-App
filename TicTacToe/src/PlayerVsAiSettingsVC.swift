@@ -20,6 +20,10 @@ class PlayerVsAiSettingsVC: UIViewController {
         loadSubViews()
         pageControll.numberOfPages = subViewControllers.count
         scrollView.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     private func loadSubViews() {

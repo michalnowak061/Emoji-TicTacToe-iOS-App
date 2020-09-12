@@ -17,6 +17,11 @@ class FirstPlayerSettingsVC: UIViewController {
         playerSymbolLabel.text = emojiList[0][0]
         playerSymbolCollectionView.delegate = self
         playerSymbolCollectionView.dataSource = self
+        playerNameTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     func fetchEmojis(){
@@ -76,5 +81,12 @@ extension FirstPlayerSettingsVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCollectionViewCell", for: indexPath) as! EmojiCollectionViewCell
         cell.emojiLabel.text = emojiList[indexPath.section][indexPath.item]
         return cell
+    }
+}
+
+extension UIViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

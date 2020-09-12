@@ -17,6 +17,11 @@ class SecondPlayerSettingsVC: UIViewController {
         playerSymbolLabel.text = emojiList[0][1]
         playerSymbolCollectionView.delegate = self
         playerSymbolCollectionView.dataSource = self
+        playerNameTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     func fetchEmojis(){
