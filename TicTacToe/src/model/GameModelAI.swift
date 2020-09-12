@@ -17,7 +17,7 @@ class GameModelAI: GameModel {
     }
     
     public func makeMoveAI() {
-        guard actualPlayer.name == "Player AI" else {
+        guard actualPlayer.name == "Komputer" else {
             return
         }
         

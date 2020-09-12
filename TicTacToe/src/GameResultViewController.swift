@@ -34,16 +34,16 @@ class GameResultViewController: UIViewController {
     
     private func displayGameResult() {
         if winner == nil {
-            resultLabel.text = "Draw"
+            resultLabel.text = "Remis"
             resultImageView.image = ResultFace.drawFace.image
         }
         else {
-            if winner!.name == "Player AI" {
-                resultLabel.text = "You lose"
+            if winner!.name == "Komputer" {
+                resultLabel.text = "Przegrałeś"
                 resultImageView.image = ResultFace.loseFace.image
             }
             else {
-                resultLabel.text = winner!.name + " is a winner"
+                resultLabel.text = winner!.name + " wygrywa"
                 resultImageView.image = ResultFace.winFace.image
             }
         }

@@ -23,9 +23,9 @@ class PlayerVsPlayerViewController: UIViewController {
         if gameModel.gameStatus != BoardStatus.continues {
             switch gameModel.gameStatus {
             case BoardStatus.win:
-                communicates.text = ActualPlayerName.text! + " wins the round"
+                communicates.text = ActualPlayerName.text! + " wygrywa rundę"
             case BoardStatus.draw:
-                communicates.text = "Draw in round"
+                communicates.text = "Runda zakończona remisem"
             default:
                 break
             }
@@ -148,21 +148,6 @@ class PlayerVsPlayerViewController: UIViewController {
 }
 
 extension UIViewController {
-    /*
-    func symbolToIcon(symbol: PlayerSymbol) -> String {
-        switch symbol {
-        case "0":
-            return "Null"
-        case "1":
-            return "⭕️"
-        case "2":
-            return "❌"
-        default:
-            return "Null"
-        }
-    }
-     */
-    
     func buttonIDtoPosition(id: String) -> (Int, Int) {
         switch id {
         case "Button00":

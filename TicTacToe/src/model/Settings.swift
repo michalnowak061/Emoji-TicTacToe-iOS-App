@@ -45,13 +45,13 @@ struct Settings: Codable {
     func difficultLevelToString() -> String {
         switch difficultLevel {
         case GameDifficultLevel.easy.rawValue:
-            return "easy"
+            return "łatwy"
         case GameDifficultLevel.medium.rawValue:
-            return "medium"
+            return "średni"
         case GameDifficultLevel.hard.rawValue:
-            return "hard"
+            return "trudny"
         default:
-            return "easy"
+            return "łatwy"
         }
     }
 }

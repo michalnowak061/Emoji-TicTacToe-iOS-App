@@ -35,9 +35,9 @@ class PlayerVsAiViewController: UIViewController {
         if gameModel.gameStatus != BoardStatus.continues {
             switch gameModel.gameStatus {
             case BoardStatus.win:
-                communicates.text = ActualPlayerName.text! + " wins the round"
+                communicates.text = ActualPlayerName.text! + " wygrywa rundę"
             case BoardStatus.draw:
-                communicates.text = "Draw in round"
+                communicates.text = "Runda zakończona remisem"
             default:
                 break
             }
